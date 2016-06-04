@@ -61,7 +61,7 @@
 	             //var gifDiv = $('<div class="item">')
 	             // Creates a generic div to hold the cartoon
 
-	             console.log(response)
+	             //console.log(response)
 				 var cartoonDiv = $('<div class="cartoon">');
 	             var cartoonDiv = $('<div>').attr('class','cartoon');
 
@@ -71,9 +71,12 @@
 
 	             var cartoonImage = $('<img>');
 	             //cartoonImage.attr('src', results[i].images.fixed_height.url);
-	             cartoonImage.attr('src', results[i].images.fixed_height.url);
-	             console.log(results[i].images.fixed_height.url);
-
+	             cartoonImage.attr('src', results[i].images.fixed_height_still.url);
+	             cartoonImage.attr('data-still', results[i].images.fixed_height_still.url);
+	             cartoonImage.attr('data-animate', results[i].images.fixed_height.url);
+	             cartoonImage.attr('data-state', 'still');
+	             cartoonImage.attr('class', 'cartoonImage');
+	             
 	             cartoonDiv.append(p)
 	             cartoonDiv.append(cartoonImage)
 
@@ -97,7 +100,7 @@
 
 	}
 
-	$('.animalImage').on('click', function(){
+	$('.cartoonImage').on('click', function(){
 	    	//STEP ONE: study the html above. Look at all the data attributes. Run the file in the browser. Look at the images. After you fill in steps 1 and 2 you'll be able to pause gifs from giphy.
 
 	    	//STEP TWO: make a variable named state and then reference the button's data-state into it. Do not use .data('state'). It won't work the way we expect.
@@ -175,7 +178,7 @@
 	// ========================================================
 
 	// Generic function for displaying the cartoonInfo
-	$(document).on('click', '.cartoon', displaycartoonInfo);
+	//$(document).on('click', '.cartoon', displaycartoonInfo);
 
 
 	// ========================================================
